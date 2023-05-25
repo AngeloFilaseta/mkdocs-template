@@ -22,10 +22,13 @@ jobs:
           python -m pip install -r requirements.txt
       - name: Build Documentation
         run: mkdocs build
-      - name: Publish Document PDF
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./site/pdf/document.pdf
-          asset_name: documentation.pdf
-          asset_content_type: application/pdf
+      - name: Publish PDF
+        uses: DanySK/semver-autotag-action@master
+        - name: Deploy
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: |
+            TAG=$(git describe --tags --exact-match HEAD)
+            hub release create -m "$(git tag -l --format='%(contents)' "$TAG")" "$TAG" || true
+            echo "Delivering file/site/pdf/document.pdf"
+            gh release upload "$TAG" "/site/pdf/document.pdf" --clobber
