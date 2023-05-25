@@ -1,5 +1,8 @@
 name: MkDocs Build and Publish
 
+permissions:
+    contents: write
+    
 on:
   push:
     branches:
@@ -29,8 +32,6 @@ jobs:
       - name: Autotag
         uses: DanySK/semver-autotag-action@master
       - name: Deploy
-        permissions:
-            contents: write
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
