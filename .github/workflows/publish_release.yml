@@ -28,7 +28,7 @@ jobs:
         env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-        TAG=$(git describe --tags --exact-match HEAD)
-        hub release create -m "$(git tag -l --format='%(contents)' "$TAG")" "$TAG" || true
-        echo "Delivering file/site/pdf/document.pdf"
-        gh release upload "$TAG" "/site/pdf/document.pdf" --clobber
+          TAG=$(git describe --tags --exact-match HEAD)
+          hub release create -m "$(git tag -l --format='%(contents)' "$TAG")" "$TAG" || true
+          echo "Delivering file/site/pdf/document.pdf"
+          gh release upload "$TAG" "/site/pdf/document.pdf" --clobber
