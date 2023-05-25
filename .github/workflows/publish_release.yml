@@ -23,7 +23,7 @@ jobs:
       - name: Build Documentation
         run: mkdocs build
       - name: Rename file
-        run: mv "/site/pdf/document.pdf" "documentation-${{ github.ref_name }}.pdf"
+        run: mv "./site/pdf/document.pdf" "documentation-${{ github.ref_name }}.pdf"
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
