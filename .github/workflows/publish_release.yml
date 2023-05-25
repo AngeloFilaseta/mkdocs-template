@@ -22,6 +22,12 @@ jobs:
           python -m pip install -r requirements.txt
       - name: Build Documentation
         run: mkdocs build
+      - name: Install conventional-changelog-action
+        run: pip install conventional-changelog-action
+      - name: Tag Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: conventional-changelog-action
       - name: Rename file
         run: mv "./site/pdf/document.pdf" "documentation-${{ github.ref_name }}.pdf"
       - name: Release
