@@ -22,13 +22,9 @@ jobs:
           python -m pip install -r requirements.txt
       - name: Build Documentation
         run: mkdocs build
-      - name: Publish PDF
-        uses: DanySK/semver-autotag-action@master
-      - name: Deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          TAG=$(git describe --tags --exact-match HEAD)
-          hub release create -m "$(git tag -l --format='%(contents)' "$TAG")" "$TAG" || true
-          echo "Delivering file/site/pdf/document.pdf"
-          gh release upload "$TAG" "/site/pdf/document.pdf" --clobber
+      - name: Rename file
+        run: mv "/site/pdf/document.pdf" "documentation-${{ github.ref_name }}.pdf"
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: documentation-${{ github.ref_name }}.pdf
