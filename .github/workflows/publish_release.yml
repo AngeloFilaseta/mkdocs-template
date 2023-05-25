@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        with:
+            fetch-depth: 0
       - name: Install Python
         uses: actions/setup-python@v4
         with:
@@ -21,13 +23,18 @@ jobs:
           python -m pip install -r requirements.txt
       - name: Build Documentation
         run: mkdocs build
-      - name: Conventional Changelog Action
-        uses: TriPSs/conventional-changelog-action@v3
-        with:
-          github-token: ${{ secrets.github_token }}
-      - name: Rename file
-        run: mv "./site/pdf/document.pdf" "documentation-${{ github.ref_name }}.pdf"
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: documentation-${{ github.ref_name }}.pdf
+      - name: Fetch tags
+        shell: bash
+        run: git fetch --tags -f
+      - name: Autotag
+        uses: DanySK/semver-autotag-action@master
+      - name: Deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG=$(git describe --tags --exact-match HEAD)
+          hub release create -m "$(git tag -l --format='%(contents)' "$TAG")" "$TAG" || true
+          mv "./site/pdf/document.pdf" "documentation.pdf"
+          pdf="documentation.pdf"
+          echo "Delivering file $pdf"
+          gh release upload "$TAG" "$pdf" --clobber
