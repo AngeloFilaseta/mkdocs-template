@@ -166,41 +166,24 @@ theme:
   # |                                                                                                      |
   # +------------------------------------------------------------------------------------------------------+
   palette:
-  
-    # +----------------------------------------------------------------------------------------------------+
-    # |                                                                                                    |
-    # | The "scheme" option is used to define the Color Scheme used by Material.                           |
-    # |                                                                                                    |
-    # | Material offers a "default" and a "slate" scheme. "default" is obviously the default (bright)      |
-    # | Color scheme while "slate" is the native dark theme from Material.                                 |
-    # |                                                                                                    |
-    # | Read More:                                                                                         |
-    # | - https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#color-scheme              |
-    # |                                                                                                    |
-    # +----------------------------------------------------------------------------------------------------+
-    scheme: 'default'
-    
-    # +----------------------------------------------------------------------------------------------------+
-    # |                                                                                                    |
-    # | "primary" is used to set the main color of the Material Theme.                                     |
-    # |                                                                                                    |
-    # | The primary color is used on the top banner of the page but also for things like the link color.   |
-    # |                                                                                                    |
-    # | Read More:                                                                                         |
-    # | - https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#primary-color             |
-    # |                                                                                                    |
-    # +----------------------------------------------------------------------------------------------------+
-    primary: 'indigo'
-    
-    # +----------------------------------------------------------------------------------------------------+
-    # |                                                                                                    |
-    # | The "accent" is used for moments such as hovering over links.                                      |
-    # |                                                                                                    |
-    # | Read More:                                                                                         |
-    # | - https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#accent-color              |
-    # |                                                                                                    |
-    # +----------------------------------------------------------------------------------------------------+
-    accent: 'blue'
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: green
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: green
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
     
   # +------------------------------------------------------------------------------------------------------+
   # |                                                                                                      |
