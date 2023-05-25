@@ -1,1 +1,2 @@
 mkdocs-material==9.1.14
+mkdocs-with-pdf==0.9.3
