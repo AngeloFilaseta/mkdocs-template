@@ -8,7 +8,6 @@ on:
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -27,7 +26,7 @@ jobs:
       - name: Tag Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: conventional-changelog-action
+        run: conventional-changelog-action
       - name: Rename file
         run: mv "./site/pdf/document.pdf" "documentation-${{ github.ref_name }}.pdf"
       - name: Release
