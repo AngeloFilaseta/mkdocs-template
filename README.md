@@ -1,23 +1,3 @@
-[use]: https://github.com/Andre601/mkdocs-template/generate
-
-[MkDocs]: https://www.mkdocs.org/
-
-[squidfunk]: https://github.com/squidfunk
-[MkDocs Material Theme]: https://github.com/squidfunk/mkdocs-material
-
-[facelessuser]: https://github.com/facelessuser
-[PyMdown Extensions]: https://github.com/facelessuser/pymdown-extensions/
-
-[Netlify]: https://netlify.com
-
-[mkdocs.yml]: https://github.com/Andre601/mkdocs-template/blob/master/mkdocs.yml
-[docs folder]: https://github.com/Andre601/mkdocs-template/blob/master/docs
-[workflow]: https://github.com/Andre601/mkdocs-template/blob/master/.github/workflows/deploy.yml
-
-[LICENSE]: https://github.com/Andre601/mkdocs-template/blob/master/LICENSE
-
-[gh-pages]: https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-
 # MkDocs Material Template
 This is a template repository for anyone that wants to use the MkDocs Material Theme.
 
@@ -57,9 +37,11 @@ Note that Material for MkDocs automatically downloads MkDocs and also certain ex
 
 MkDocs would now build the HTML in the defined configuration folder for you to use.
 
-## Deploy to GitHub
+### Deploy to GitHub
 If you want to publish the pages on GitHub Pages can you use the [premade workflow][workflow] for this.  
-This workflow will setup Python, download Material for MkDocs and all its dependencies and deploy the pages to the `gh-pages` branch to then be viewable under `<username>.github.io/<repository>` (unless you defined a specific CNAME through a CNAME file in the [docs folder]).
+This workflow will setup Python, download Material for MkDocs and all its dependencies and deploy the pages to the
+`gh-pages` branch to then be viewable under `<username>.github.io/<repository>` (unless you defined a specific CNAME
+through a CNAME file in the [docs folder]).
 
 Note that in order for this to work will you need to have a `gh-pages` branch already made.
 
