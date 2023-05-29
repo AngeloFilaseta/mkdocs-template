@@ -1,0 +1,11 @@
+.md-grid{
+    max-width: 85rem;
+}
+
+/* To solve a visualization bug in admonitions PDF generation */
+@media print {
+    .md-typeset :is(.admonition-title,summary):before {
+      top: 0.6rem;
+      left: 0.6rem;
+    }
+  }
