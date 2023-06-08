@@ -1,0 +1,32 @@
+.md-grid{
+    max-width: 85rem;
+}
+
+/* To solve a visualization bug in admonitions PDF generation */
+@media print {
+    .md-typeset :is(.admonition-title,summary):before {
+      top: 0.6rem;
+      left: 0.6rem;
+    }
+  }
+
+:root > * {
+--md-primary-fg-color: #012E65;
+--md-primary-fg-color--light: #00152e;
+--md-primary-fg-color--dark: #2562ac;
+--md-typeset-a-color: #007bee ;
+}
+
+#doc-toc * {
+border-color: var(--md-primary-fg-color) !important;
+}
+
+article h1,
+article h2,
+article h3 {
+border-color: var(--md-primary-fg-color)!important;
+}
+
+ol > li::marker {
+  font-weight: bold;
+}
