@@ -9,7 +9,7 @@ docs_dir: docs/
 
 repo_name: AngeloFilaseta/mkdocs
 
-repo_url: https://github.com/AngeloFilaseta/mkdocs
+repo_url: https://github.com/AngeloFilaseta/mkdocs-template
 
 nav:
   - Welcome: index.md
@@ -53,6 +53,8 @@ plugins:
   - search
   - with-pdf:
       cover_subtitle: Subtitle
+# - bibtex:
+#     bib_file: "./bibliography.bib"
   - section-index
   - literate-nav
 
