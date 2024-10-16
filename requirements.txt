@@ -3,4 +3,4 @@ mkdocs-material==9.1.14
 mkdocs-with-pdf==0.9.3
 mkdocs-literate-nav==0.6.0
 mkdocs-section-index==0.3.5
-setuptools==67.8.0
+setuptools==75.2.0
